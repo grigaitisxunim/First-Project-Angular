@@ -12,4 +12,13 @@
   }
   .mat-spinner {
     margin: auto;
-    }
+  }
+  .paciente-imagem {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .paciente-imagem > img {
+    max-width: 50%;
+  }
+  

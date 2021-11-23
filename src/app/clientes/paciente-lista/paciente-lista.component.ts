@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Paciente } from '../paciente.model';
 import { PacienteService } from '../paciente.service';
-
 import { Subscription, Observable } from 'rxjs';
+
 @Component({
 selector: 'app-paciente-lista',
 templateUrl: './paciente-lista.component.html',

@@ -46,7 +46,7 @@ router.post(
     });
     paciente.save().then((pacienteInserido) => {
       res.status(201).json({
-        mensagem: "paciente inserido",
+        mensagem: "Paciente inserido",
         paciente:{
         id: pacienteInserido._id,
         nome: pacienteInserido.nome,
