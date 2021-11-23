@@ -67,7 +67,7 @@ export class ClienteInserirComponent implements OnInit {
                         especialidade: dadosCli.especialidade,
                         estado: dadosCli.estado,
                         crp: dadosCli.crp,
-                        imagemURL: null,
+                        imagemURL: dadosCli.imagemURL,
 
                     };
                     this.form.setValue({
@@ -78,6 +78,8 @@ export class ClienteInserirComponent implements OnInit {
                         especialidade: this.cliente.especialidade,
                         estado: this.cliente.estado,
                         crp: this.cliente.crp,
+                        imagem: this.cliente.imagemURL
+                        
                         
                     })
 
@@ -116,10 +118,11 @@ export class ClienteInserirComponent implements OnInit {
                 this.form.value.senha,
                 this.form.value.especialidade,
                 this.form.value.estado,
-                this.form.value.crp
+                this.form.value.crp,
+                this.form.value.imagem
 
 
-            )
+            );
         }
 
         this.form.reset();

@@ -17,9 +17,9 @@ export class PacienteService {
     }
 
 
-    getPacientes(): void {
-        this.httpClient
-            .get<{ mensagem: string, pacientes: any }>('http://localhost:3000/api/pacientes')
+    getPacientes(pagesize: number, page: number): void {
+        const parametros = `?pagesize=${pagesize}&page=${page}`;
+                this.httpClient.get<{ mensagem: string, pacientes: any }>('http://localhost:3000/api/pacientes'+ parametros)
             .pipe(map((dados) => {
                 return dados.pacientes.map((paciente: { _id: any; nome: any; fone: any; email: any; senha: any; estado: any; datanasc: any,imagemURL: any }) => {
                     return {
@@ -69,7 +69,7 @@ export class PacienteService {
         this.httpClient.post<{ mensagem: string, paciente: Paciente }>
             ('http://localhost:3000/api/pacientes', dadosPaciente).subscribe(
                 (dados) => {
-                    /*cliente.id = dados.id;*/
+                    /*paciente.id = dados.id;*/
                     const paciente: Paciente = {
                         id: dados.paciente.id,
                         nome: nome,
@@ -96,7 +96,8 @@ export class PacienteService {
             email: string, 
             senha: string, 
             estado: string, 
-            datanasc: string 
+            datanasc: string ,
+            imagemURL:string
         }>(`http://localhost:3000/api/pacientes/${idPaciente}`);
 
     }
@@ -113,16 +114,53 @@ export class PacienteService {
             this.listaPacienteAtualizada.next([...this.pacientes]);
         });
     }
-    atualizarPaciente(id: string, nome: string, fone: string, email: string, senha: string, estado: string, datanasc: string) {
-        const paciente: Paciente = { id, nome, fone, email, senha, estado, datanasc, imagemURL: null };
-        this.httpClient.put(`http://localhost:3000/api/pacientes/${id}`, paciente)
-            .subscribe((res => {
+         atualizarPaciente (id: string, nome: string, fone: string, email: string, senha: string, estado: string, datanasc: string, imagem: File | string){
+                //const paciente: paciente = { id, nome, fone, email, imagemURL: null};
+                let pacienteData: Paciente | FormData ;
+                if (typeof(imagem) === 'object'){// é um arquivo, montar um form data
+                pacienteData = new FormData();
+                pacienteData.append("id", id);
+                pacienteData.append('nome', nome);
+                pacienteData.append('fone', fone);
+                pacienteData.append("email", email);
+                pacienteData.append('senha',senha);
+                pacienteData.append('estado',estado);
+                pacienteData.append('datanasc',datanasc);
+                pacienteData.append('imagem', imagem, nome);
+
+                pacienteData.append('imagem', imagem, nome);//chave, foto e nome para o arquivo
+                }else{
+                //enviar JSON comum
+                pacienteData = {
+                id: id,
+                nome: nome,
+                fone: fone,
+                email: email,
+                senha:senha,
+                estado:estado,
+                datanasc:datanasc,
+                imagemURL: imagem
+                }
+                }
+                console.log (typeof(pacienteData));
+                this.httpClient.put(`http://localhost:3000/api/pacientes/${id}`, pacienteData)
+                .subscribe((res => {
                 const copia = [...this.pacientes];
-                const indice = copia.findIndex(pac => pac.id === paciente.id);
+                const indice = copia.findIndex (pac => pac.id === id);
+                const paciente: Paciente = {
+                id: id,
+                nome: nome,
+                fone: fone,
+                email: email,
+                senha:senha,
+                estado:estado,
+                datanasc:datanasc,
+                imagemURL: ""
+                }
                 copia[indice] = paciente;
                 this.pacientes = copia;
                 this.listaPacienteAtualizada.next([...this.pacientes]);
-                this.router.navigate(['/pacientelista'])
-            }));
+                this.router.navigate(['/'])
+                }));
+                }
     }
-}

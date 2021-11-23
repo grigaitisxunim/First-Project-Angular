@@ -59,7 +59,7 @@ export class PacienteInserirComponent implements OnInit {
                         senha: dadosPac.senha,
                         estado: dadosPac.estado,
                         datanasc: dadosPac.datanasc,
-                        imagemURL: null,
+                        imagemURL: dadosPac.imagemURL
 
                     };
                     this.form.setValue({
@@ -68,7 +68,9 @@ export class PacienteInserirComponent implements OnInit {
                         email: this.paciente.email,
                         senha: this.paciente.senha,
                         estado: this.paciente.estado,
-                        datanasc: this.paciente.datanasc
+                        datanasc: this.paciente.datanasc,
+                        imagem: this.paciente.imagemURL
+                        
                     })
                 });
             }
@@ -103,7 +105,8 @@ export class PacienteInserirComponent implements OnInit {
                 this.form.value.email,
                 this.form.value.senha,
                 this.form.value.estado,
-                this.form.value.datanasc
+                this.form.value.datanasc,
+                this.form.value.imagem
 
 
             )

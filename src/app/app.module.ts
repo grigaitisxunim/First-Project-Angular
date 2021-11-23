@@ -32,6 +32,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { PacienteInserirComponent } from './clientes/paciente-inserir/paciente-inserir.component';
 import { PacienteListaComponent } from './clientes/paciente-lista/paciente-lista.component';
 import { PacienteService } from './clientes/paciente.service';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import { PacienteService } from './clientes/paciente.service';
     BrowserModule, FormsModule,ReactiveFormsModule, BrowserAnimationsModule,
     MatInputModule, MatCardModule, MatButtonModule, MatToolbarModule,MatNativeDateModule,MatDividerModule,
     MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule,
-    MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule,MatDatepickerModule,MatSelectModule
+    MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule,MatDatepickerModule,MatSelectModule,MatPaginatorModule
   ],
   providers: [ClienteService,PacienteService],
   bootstrap: [AppComponent]

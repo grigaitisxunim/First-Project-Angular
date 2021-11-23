@@ -27,6 +27,7 @@
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
+<mat-paginator *ngIf="clientes.length > 0"[length]="totalDeClientes" [pageSize]="totalDeClientesPorPagina" [pageSizeOptions]="opcoesTotalDeClientesPorPagina" (page)="onPaginaAlterada($event)"></mat-paginator>
 
 <p
   class="mat-body-1"
