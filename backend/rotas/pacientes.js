@@ -29,6 +29,39 @@ const armazenamento = multer.diskStorage({
   },
 });
 
+router.post(
+  "",
+  multer({ storage: armazenamento }).single("imagem"),
+  (req, res, next) => {
+    const imagemURL = `${req.protocol}://${req.get("host")}`;
+    const paciente = new Paciente({
+      nome: req.body.nome,
+      fone: req.body.fone,
+      email: req.body.email,
+      senha: req.body.senha,
+      estado: req.body.estado,
+      datanasc: req.body.datanasc,
+      imagemURL: `${imagemURL}/imagens/${req.file.filename}`,
+    });
+    paciente.save().then((pacienteInserido) => {
+      res.status(201).json({
+        mensagem: "paciente inserido",
+        //id: pacienteInserido._id
+        paciente: {
+          id: pacienteInserido._id,
+          nome: pacienteInserido.nome,
+          fone: pacienteInserido.fone,
+          email: pacienteInserido.email,
+          senha: pacienteInserido.senha,
+        estado: pacienteInserido.estado,
+        datanasc: pacienteInserido.datanasc,
+          imagemURL: pacienteInserido.imagemURL,
+        },
+      });
+    });
+  }
+);
+
 router.put(
   "/:id",
   multer({ storage: armazenamento }).single('imagem'),
@@ -92,27 +125,12 @@ router.delete("/:id", (req, res, next) => {
     res.status(200).json({ mensagem: "Paciente removido" });
   });
 });
-router.put("/:id", (req, res, next) => {
-  const paciente = new Paciente({
-    _id: req.params.id,
-    nome: req.body.nome,
-    fone: req.body.fone,
-    email: req.body.email,
-    senha: req.body.senha,
-    estado: req.body.estado,
-    datanasc: req.body.datanasc,
-   
-  });
-  Paciente.updateOne({ _id: req.params.id }, paciente).then((resultado) => {
-    console.log(resultado);
-    res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
-  });
-});
+
 router.get("/:id", (req, res, next) => {
   Paciente.findById(req.params.id).then((pac) => {
     if (pac) {
       res.status(200).json(pac);
     } else res.status(404).json({ mensagem: "paciente não encontrado!" });
   });
-});
+}); 
 module.exports = router;

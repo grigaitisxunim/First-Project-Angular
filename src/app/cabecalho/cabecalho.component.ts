@@ -12,4 +12,5 @@ export class CabecalhoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }

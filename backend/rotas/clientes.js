@@ -30,6 +30,41 @@ const armazenamento = multer.diskStorage({
   },
 });
 
+router.post(
+  "",
+  multer({ storage: armazenamento }).single("imagem"),
+  (req, res, next) => {
+    const imagemURL = `${req.protocol}://${req.get("host")}`;
+    const cliente = new Cliente({
+      nome: req.body.nome,
+      fone: req.body.fone,
+      email: req.body.email,
+      senha: req.body.senha,
+      especialidade: req.body.especialidade,
+      estado: req.body.estado,
+      crp: req.body.crp,
+      imagemURL: `${imagemURL}/imagens/${req.file.filename}`,
+    });
+    cliente.save().then((clienteInserido) => {
+      res.status(201).json({
+        mensagem: "Cliente inserido",
+        //id: clienteInserido._id
+        cliente: {
+          id: clienteInserido._id,
+          nome: clienteInserido.nome,
+          fone: clienteInserido.fone,
+          email: clienteInserido.email,
+          senha: clienteInserido.senha,
+          especialidade: clienteInserido.especialidade,
+          estado: clienteInserido.estado,
+          crp: clienteInserido.crp,
+          imagemURL: clienteInserido.imagemURL,
+        },
+      });
+    });
+  }
+);
+
 router.put(
   "/:id",
   multer({ storage: armazenamento }).single('imagem'),
@@ -96,22 +131,7 @@ router.delete("/:id", (req, res, next) => {
     res.status(200).json({ mensagem: "Cliente removido" });
   });
 });
-router.put("/:id", (req, res, next) => {
-  const cliente = new Cliente({
-    _id: req.params.id,
-    nome: req.body.nome,
-    fone: req.body.fone,
-    email: req.body.email,
-    senha: req.body.senha,
-    especialidade: req.body.especialidade,
-    estado: req.body.estado,
-    crp: req.body.crp,
-  });
-  Cliente.updateOne({ _id: req.params.id }, cliente).then((resultado) => {
-    console.log(resultado);
-    res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
-  });
-});
+
 router.get("/:id", (req, res, next) => {
   Cliente.findById(req.params.id).then((cli) => {
     if (cli) {

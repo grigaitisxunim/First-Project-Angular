@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Cadastro } from './cadastro/cliente.component';
 import { Cliente } from './clientes/cliente.model';
 import { Paciente } from './clientes/paciente.model';
 
@@ -20,4 +21,7 @@ export class AppComponent {
   onPacienteAdicionado(paciente: Paciente) {
     this.pacientes.push(paciente);
     }
+
+    
+
 }

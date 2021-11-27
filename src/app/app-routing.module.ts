@@ -10,7 +10,7 @@ import { AgendaComponent } from './agenda/agenda.component';
 import{InicioComponent} from './inicio/inicio.component'
 const routes: Routes = [
 
-{ path: 'login', component: Cadastro },
+{ path: '', component: Cadastro },
 {path:'inicio',component:InicioComponent},
 { path: 'criar', component: ClienteInserirComponent},
 { path: 'lista', component: ClienteListaComponent },
