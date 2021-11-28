@@ -33,11 +33,13 @@ import { PacienteInserirComponent } from './clientes/paciente-inserir/paciente-i
 import { PacienteListaComponent } from './clientes/paciente-lista/paciente-lista.component';
 import { PacienteService } from './clientes/paciente.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
+//import { ComponentInicioVoluntarioComponent } from './component-inicio-voluntario/component-inicio-voluntario.component';
+import { InicioVoluntarioComponent } from './inicio-voluntario/inicio-voluntario.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent,MenuComponent, AgendaComponent,PacienteInserirComponent,PacienteListaComponent
+    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent,MenuComponent, AgendaComponent,PacienteInserirComponent,PacienteListaComponent, InicioVoluntarioComponent
   ],
   imports: [
     BrowserModule, FormsModule,ReactiveFormsModule, BrowserAnimationsModule,

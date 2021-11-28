@@ -12,6 +12,7 @@ const routes: Routes = [
 
 { path: '', component: Cadastro },
 {path:'inicio',component:InicioComponent},
+{path:'inicio-paciente',component:InicioComponent},
 { path: 'criar', component: ClienteInserirComponent},
 { path: 'lista', component: ClienteListaComponent },
 { path: 'criarPaciente', component: PacienteInserirComponent},

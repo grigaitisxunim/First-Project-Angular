@@ -1,19 +1,6 @@
 
 <mat-toolbar color="basic">
   <h4 id=title-cabeçalho>Ideia Amiga</h4>
-  <span class="separador"></span>
-  <span id=home><a routerLink="/inicio">Inicio</a></span>
-  <ul>
-    <a routerLink="/lista">Voluntarios</a></ul>
-    <ul>
-      <a routerLink="/criar">Cadastro</a>
-    </ul>
-    <ul>
-      <a routerLink="/pacientelista">Pacientes</a>
-    </ul>
-    <ul>
-      <a routerLink="/agendar">Agendamentos</a>
-    </ul>
   </mat-toolbar>
   
 <mat-card>
@@ -141,6 +128,6 @@
       <mat-error *ngIf="form.get('crp')!.invalid">Digite o CRP</mat-error>
     </mat-form-field>
     <button color="accent" mat-raised-button>Inserir</button>
-    <button id="bn_voluntarios" mat-raised-button>Verificar Voluntarios</button>
+    <button id="bn_voluntarios" router-Link='inicio-voluntario' mat-raised-button >Ir para o inicio</button>
   </form>
 </mat-card>
