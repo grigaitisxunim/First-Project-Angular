@@ -56,8 +56,6 @@ export class ClienteService {
         dadosCliente.append('estado', estado);
         dadosCliente.append('crp', crp);
         dadosCliente.append('imagem', imagem);
-
-
         this.httpClient.post<{ mensagem: string, cliente: Cliente }>
             ('http://localhost:3000/api/clientes', dadosCliente).subscribe(
                 (dados) => {

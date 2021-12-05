@@ -40,31 +40,34 @@ export class AgendaService {
     constructor(private httpClient: HttpClient, private router: Router) {
     }
 
-    adicionarAgenda(especialidade: string, medico: string, data: string,hora:string) {
+    adicionarAgenda(especialidade: string, medico: string , data: string,hora:string) {
         const dadosAgenda = new FormData();
         dadosAgenda.append('especialidade', especialidade);
         dadosAgenda.append('medico', medico);
         dadosAgenda.append('data', data);
         dadosAgenda.append('hora', hora);
-
-
+        
         this.httpClient.post<{ mensagem: string, agenda: Agenda }>
-            ('http://localhost:3000/api/agendas', dadosAgenda).subscribe(
+        ('http://localhost:3000/api/agendas', dadosAgenda).subscribe(
                 (dados) => {
                     /*cliente.id = dados.id;*/
-                    const agenda: Agenda = {
+                    const xagenda: Agenda = {
                         id: dados.agenda.id,
-                        especialidade: especialidade,
+                        especialidade:especialidade,
                         medico:medico,
                         data: data,
                         hora: hora,
                         
                     };
-                    this.agendas.push(agenda);
+                    console.log("agenda" + xagenda.especialidade);
+                    this.agendas.push(xagenda);
                     this.listaAgendasAtualizada.next([...this.agendas]);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/inicio']);
                 }
-            )
+                
+            );  console.log("passo 1" + especialidade);
+            console.log("passo 1"+ dadosAgenda.get('especialidade'));
+            
     }
     getAgenda(idAgenda: string) {
         //return {...this.clientes.find((cli) => cli.id === idCliente)};

@@ -12,15 +12,13 @@ mongoose
   .connect(
     "mongodb+srv://Projeto_2021:projeto21@cluster0.un0lx.mongodb.net/Projeto_2021?retryWrites=true&w=majority"
   )
-  /*.connect(
-    "mongodb+srv://fefebfs1:fefebfs@cluster0.t72pr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-  )*/
+  
   .then(() => {
     console.log("Conexão OK");
   })
   .catch(function (e) {
     console.log(e);
-  })
+  });
 
 const get = async () => {
   return Promise.reject("Oops!").catch((err) => {

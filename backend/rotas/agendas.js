@@ -10,19 +10,20 @@ router.post(
       medico: req.body.medico,
       data: req.body.data,
       hora:req.body.hora,
-    });
+    }); console.log("post " + req.body.especialidade)
     agenda.save().then((agendaInserido) => {
       res.status(201).json({
         mensagem: "Cliente inserido",
-        //id: clienteInserido._id
+       
         agenda: {
           id: agendaInserido._id,
           especialidade: agendaInserido.especialidade,
           medico:agendaInserido.medico,
-          data: agendaInserido.data,
-          hora: agendaInserido.hora,
+         data: agendaInserido.data,
+         hora: agendaInserido.hora,
         },
       });
+      
     });
   }
 );
@@ -38,8 +39,8 @@ const url = req.protocol + "://" + req.get("host");
       _id: req.params.id,
       especialidade: req.body.especialidade,
       medico: req.body.medico,
-      data: req.body.data,
-      hora:req.body.hora,
+     data: req.body.data,
+     hora:req.body.hora,
     });
     Agenda.updateOne({ _id: req.params.id }, agenda).then((resultado) => {
       //console.log(resultado)
