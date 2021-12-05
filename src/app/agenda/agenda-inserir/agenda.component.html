@@ -1,0 +1,70 @@
+<mat-toolbar color="basic">
+  <h4 id=title-cabeçalho>Ideia Amiga</h4>
+  <span class="separador"></span>
+    <span id=home><a routerLink="/inicio">Inicio</a></span>
+    <ul>
+      <a routerLink="/lista">Voluntarios</a></ul>
+      <ul>
+        <a routerLink="/agendar">Agendar</a>
+      </ul>
+      <ul>
+        <a routerLink="/agenda-lista">Agendamentos</a>
+      </ul>
+    </mat-toolbar>
+
+<mat-card>
+  <mat-spinner *ngIf="estaCarregando"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSalvarAgenda()" *ngIf="!estaCarregando">
+
+  <br />
+  <br />
+    <mat-form-field>
+      <mat-select
+        matSelect
+        placeholder="Especialidade"
+        formControlName="especialidade"
+        name="especialidade"
+      >
+        <mat-option value="Infantil">Infantil</mat-option>
+        <mat-option value="Infanto-juvenil">Infanto-juvenil</mat-option>
+        <mat-option value="Adulto">Adulto</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select
+        matSelect
+        placeholder="Medico"
+        formControlName="medico"
+        name="medico">
+        <mat-option value="Joao Luiz">Joao Luiz</mat-option>
+        <mat-option value="Marcos Silva">Marcos Silva</mat-option>
+        <mat-option value="Vinicius Andrade">Vinicius Andrade</mat-option>
+        <mat-option value="Paulo Rocha">Paulo Rocha</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="Data"
+        formControlName="data"
+        name="data"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select
+        matSelect
+        placeholder="Hora"
+        formControlName="hora"
+        name="hora">
+        <mat-option value="9H">9H</mat-option>
+        <mat-option value="11H">11H</mat-option>
+        <mat-option value="13H">13H</mat-option>
+        <mat-option value="15H">15H</mat-option>
+        <mat-option value="17H">17H</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button color="accent" mat-raised-button>Inserir</button>
+    <button  color="accent"id="bn_voluntarios" router-Link='inicio-voluntario' mat-raised-button >Ir para o inicio</button>
+  </form>
+</mat-card>

@@ -3,7 +3,6 @@ import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ClienteService } from '../cliente.service';
 import { Cliente } from '../cliente.model';
-import { mimeTypeValidator } from './mime-type.validator';
 
 @Component({
     selector: 'app-cliente-inserir',

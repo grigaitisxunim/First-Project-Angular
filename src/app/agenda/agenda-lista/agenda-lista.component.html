@@ -1,0 +1,45 @@
+<mat-toolbar color="basic">
+  <h4 id=title>Ideia Amiga</h4>
+  <span class="separador"></span>
+  <span id=home><a routerLink="/inicio">Inicio</a></span>
+  <ul>
+    <a routerLink="/lista">Voluntarios</a></ul>
+    <ul>
+      <a routerLink="/agendar">Agendar</a>
+    </ul>
+    <ul>
+      <a routerLink="/agenda-lista">Agendamentos</a>
+    </ul>
+  </mat-toolbar>
+  <mat-spinner *ngIf="estaCarregando"></mat-spinner>
+<mat-accordion *ngIf="agendas.length > 0 && !estaCarregando">
+  <mat-expansion-panel *ngFor="let age of agendas">
+    <mat-expansion-panel-header
+      >Especialidade: {{ age.especialidade }}
+    </mat-expansion-panel-header>
+    <p>Medico: {{ age.medico }}</p>
+    <hr />
+    <p>Data: {{ age.data }}</p>
+    <hr />
+    <p>Hora: {{ age.hora }}</p>
+    <hr />
+    <mat-action-row>
+      <a mat-button color="primary" [routerLink]="['/editar', age.id]"
+        >EDITAR</a
+      >
+      <button mat-button color="warn" (click)="onDelete(age.id)">
+        REMOVER
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+<p
+  class="mat-body-1"
+  style="text-align: center"
+  *ngIf="agendas.length <= 0 && !estaCarregando"
+>
+  Você não possui consulta marcada 
+</p>
+<button color="accent" id="bn_voltar" mat-raised-button>Voltar ao inicio</button>

@@ -6,6 +6,7 @@ app.use(bodyParser.json());
 const mongoose = require("mongoose");
 const clienteRoutes = require("./rotas/clientes");
 const pacienteRoutes = require("./rotas/pacientes");
+const agendaRoutes = require("./rotas/agendas");
 
 mongoose
   .connect(
@@ -19,7 +20,7 @@ mongoose
   })
   .catch(function (e) {
     console.log(e);
-  });
+  })
 
 const get = async () => {
   return Promise.reject("Oops!").catch((err) => {
@@ -43,5 +44,5 @@ app.use((req, res, next) => {
 });
 app.use("/api/clientes", clienteRoutes);
 app.use("/api/pacientes", pacienteRoutes);
-
+app.use("/api/agendas",agendaRoutes);
 module.exports = app;

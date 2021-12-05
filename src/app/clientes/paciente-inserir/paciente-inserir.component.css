@@ -5,9 +5,13 @@
     background: rgb(240, 162, 47);
     color: rgb(5, 5, 5);
     font-size: 20px;
-   
+}
       
- }
+    form{
+      width: 50%;
+      margin-left: 25%;
+    }
+ 
  a{
      color:black
  }
@@ -39,6 +43,7 @@ input {
 
 .mat-raised-button {
   background-color: rgb(240, 162, 47);
+  margin-left: 12rem;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
@@ -79,16 +84,22 @@ input[type="file"] {
   align-self: center;
   border: none;
   margin-top: 1rem;
+ 
 }
 .btn-primary {
   background-color: transparent;
   border: 1px solid #f89c24;
   transition: background-color 0.5s;
+  margin-left: 10rem;
 }
 .btn-primary:hover {
   background-color: #f89c24;
   color: #9e6905;
+  
 }
 .btn-align {
   text-align: center;
+}
+button{
+  margin-left: 20%;
 }

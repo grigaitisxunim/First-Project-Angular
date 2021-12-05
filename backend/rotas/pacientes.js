@@ -82,19 +82,9 @@ imagemURL = url + "/imagens/" + req.file.filename;
       datanasc: req.body.datanasc,
       imagemURL: imagemURL
     });
-    paciente.save().then((pacienteInserido) => {
-      res.status(201).json({
-        mensagem: "Paciente inserido",
-        paciente:{
-        id: pacienteInserido._id,
-        nome: pacienteInserido.nome,
-        fone: pacienteInserido.fone,
-        email: pacienteInserido.email,
-        senha: pacienteInserido.senha,
-        estado: pacienteInserido.estado,
-        datanasc: pacienteInserido.datanasc,
-        imagemURL: pacienteInserido.imagemURL,
-      }});
+    Paciente.updateOne({ _id: req.params.id }, paciente).then((resultado) => {
+      //console.log(resultado)
+      res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
     });
   }
 );

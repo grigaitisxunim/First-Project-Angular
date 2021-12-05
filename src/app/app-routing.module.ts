@@ -6,8 +6,10 @@ import { PacienteListaComponent } from './clientes/paciente-lista/paciente-lista
 import { PacienteInserirComponent } from './clientes/paciente-inserir/paciente-inserir.component';
 import { Cadastro } from './cadastro/cliente.component';
 import { MenuComponent } from './menu/menu.component';
-import { AgendaComponent } from './agenda/agenda.component';
+import { AgendaComponent } from './agenda/agenda-inserir/agenda.component';
 import{InicioComponent} from './inicio/inicio.component'
+import { InicioVoluntarioComponent } from './inicio-voluntario/inicio-voluntario.component';
+import { AgendaListaComponent } from './agenda/agenda-lista/agenda-lista.component';
 const routes: Routes = [
 
 { path: '', component: Cadastro },
@@ -20,7 +22,9 @@ const routes: Routes = [
 { path: 'editar/:idCliente', component: ClienteInserirComponent},
 { path: 'editarPaciente/:idPaciente', component: PacienteInserirComponent},
 { path:'menu', component: MenuComponent},
-{ path: 'agendar', component: AgendaComponent }
+{ path: 'agendar', component: AgendaComponent },
+{ path: 'agenda-lista', component: AgendaListaComponent},
+{path :'inicio-voluntario', component: InicioVoluntarioComponent}
 
 
 ];

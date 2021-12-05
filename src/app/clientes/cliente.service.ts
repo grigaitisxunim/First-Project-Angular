@@ -47,15 +47,6 @@ export class ClienteService {
     }
 
     adicionarCliente(nome: string, fone: string, email: string, senha: string, especialidade: string, estado: string, crp: string, imagem: File) {
-
-        /*id: '',
-        nome: nome,
-        fone: fone,
-        email: email,
-        senha: senha,
-        especialidade:especialidade,
-        estado:estado,
-        crp:crp,*/
         const dadosCliente = new FormData();
         dadosCliente.append("nome", nome);
         dadosCliente.append('fone', fone);
@@ -84,7 +75,7 @@ export class ClienteService {
                     };
                     this.clientes.push(cliente);
                     this.listaClientesAtualizada.next([...this.clientes]);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/inicio']);
                 }
             )
     }

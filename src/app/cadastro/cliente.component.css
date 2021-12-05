@@ -39,7 +39,7 @@ body {
     left: 0;
 }
 .title {
-    font-size: 28px;
+    font-size: 35px;
     font-weight: bold;
     text-transform: capitalize;
 }
@@ -69,9 +69,9 @@ body {
     cursor: pointer;
     font-weight: bold;
     width: 150px;
-    align-self: center;
     border: none;
     margin-top: 1rem;
+   
 }
 .btn-primary {
     background-color: transparent;
@@ -81,11 +81,14 @@ body {
 .btn-primary:hover {
     background-color: #f89c24;
     color: #af9158;
+    align-content: center;
 }
 .btn-second {
     background-color: #fffefe;
     border: 1px solid #f89c24;
     transition: background-color .5s;
+    margin-left: 1.3rem; 
+    
 }
 .btn-second:hover {
     background-color: #fff;

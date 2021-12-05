@@ -8,20 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class InicioVoluntarioComponent implements OnInit {
   
   images = [
-    {path: 'https://www.nucleode-stress.com.br/wp-content/uploads/2021/07/como-incentivar-alguem-a-procurar-um-psicologo.png'},
-    {path: 'https://www.psicologosberrini.com.br/wp-content/uploads/psicologo-e-trabalho-em-equipe-2-1024x683.jpg'},
-    {path: 'https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2019/05/orientaccca7acc83o-psicologia-ecc81-parado-demais.png'},
-    {path: 'https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2020/08/Dia-do-Psic%C3%B3logo.jpg'},
-    {path: 'https://juliahelmer.com.br/images/terapia-online.jpg'},
+    {path: 'https://www.echosis.com.br/site/wp-content/uploads/2019/12/psicologia-e-marketing2.png'},
+    {path: 'https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2020/03/gosto-da-mente-das-pessoas.-devo-fazer-psicologia-.jpg'},
+    {path: 'https://www.crprs.org.br/entrelinhas/assets/artigos/31e81-ed86-reportagem-principal1.jpg'},
+    {path: 'https://www.sinesp.org.br/images/2020/Junho-2020/Covid-BemEstar.jpg'},
+    {path: 'https://crp04.org.br/wp-content/uploads/2020/03/atendimentoonline_categoria.jpg'},
 
 ];   
 
 imagesForSlider = [
-  {path: 'https://www.nucleode-stress.com.br/wp-content/uploads/2021/07/como-incentivar-alguem-a-procurar-um-psicologo.png'},
-  {path: 'https://www.psicologosberrini.com.br/wp-content/uploads/psicologo-e-trabalho-em-equipe-2-1024x683.jpg'},
-  {path: 'https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2019/05/orientaccca7acc83o-psicologia-ecc81-parado-demais.png'},
-  {path: 'https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2020/08/Dia-do-Psic%C3%B3logo.jpg'},
-  {path: 'https://juliahelmer.com.br/images/terapia-online.jpg'}
+  {path: 'https://www.echosis.com.br/site/wp-content/uploads/2019/12/psicologia-e-marketing2.png'},
+  {path: 'https://guiadoestudante.abril.com.br/wp-content/uploads/sites/4/2020/03/gosto-da-mente-das-pessoas.-devo-fazer-psicologia-.jpg'},
+  {path: 'https://www.crprs.org.br/entrelinhas/assets/artigos/31e81-ed86-reportagem-principal1.jpg'},
+  {path: 'https://www.sinesp.org.br/images/2020/Junho-2020/Covid-BemEstar.jpg'},
+  {path: 'https://crp04.org.br/wp-content/uploads/2020/03/atendimentoonline_categoria.jpg'}
 ];
 
   constructor() { }

@@ -23,7 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { InicioComponent } from './inicio/inicio.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
-import { AgendaComponent } from './agenda/agenda.component';
+import { AgendaComponent } from './agenda/agenda-inserir/agenda.component';
+import { AgendaListaComponent} from './agenda/agenda-lista/agenda-lista.component'
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
@@ -35,11 +36,13 @@ import { PacienteService } from './clientes/paciente.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 //import { ComponentInicioVoluntarioComponent } from './component-inicio-voluntario/component-inicio-voluntario.component';
 import { InicioVoluntarioComponent } from './inicio-voluntario/inicio-voluntario.component';
+import { AgendaService } from './agenda/agenda.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent,MenuComponent, AgendaComponent,PacienteInserirComponent,PacienteListaComponent, InicioVoluntarioComponent
+    AppComponent, ClienteInserirComponent, CabecalhoComponent, ClienteListaComponent,Cadastro, MenuComponent, InicioComponent,MenuComponent, AgendaComponent,PacienteInserirComponent,PacienteListaComponent, InicioVoluntarioComponent,
+    AgendaListaComponent
   ],
   imports: [
     BrowserModule, FormsModule,ReactiveFormsModule, BrowserAnimationsModule,
@@ -47,7 +50,7 @@ import { InicioVoluntarioComponent } from './inicio-voluntario/inicio-voluntario
     MatExpansionModule,HttpClientModule,AppRoutingModule, LayoutModule, MatSidenavModule,
     MatIconModule, MatListModule,IvyCarouselModule,MatProgressSpinnerModule,MatDatepickerModule,MatSelectModule,MatPaginatorModule
   ],
-  providers: [ClienteService,PacienteService],
+  providers: [ClienteService,PacienteService,AgendaService],
   bootstrap: [AppComponent]
   
 })

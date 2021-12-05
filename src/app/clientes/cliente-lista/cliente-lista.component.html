@@ -1,13 +1,16 @@
 <mat-toolbar color="basic">
   <h4 id=title>Ideia Amiga</h4>
   <span class="separador"></span>
-  <span id=home><a routerLink="/inicio-voluntario">Inicio</a></span>
+  <span id=home><a routerLink="/inicio">Inicio</a></span>
+  <ul>
+    <a routerLink="/lista">Voluntarios</a></ul>
     <ul>
-      <a routerLink="/criar">Cadastro</a>
+      <a routerLink="/agendar">Agendar</a>
     </ul>
     <ul>
-      <a routerLink="/agendar">Agendamentos</a>
+      <a routerLink="/agenda-lista">Agendamentos</a>
     </ul>
+    
   </mat-toolbar>
   <mat-spinner *ngIf="estaCarregando"></mat-spinner>
 <mat-accordion *ngIf="clientes.length > 0 && !estaCarregando">
@@ -28,14 +31,14 @@
     <hr />
     <p>CRP: {{ cliente.crp }}</p>
     <hr />
-    <mat-action-row>
+    <!--<mat-action-row>
       <a mat-button color="primary" [routerLink]="['/editar', cliente.id]"
         >EDITAR</a
       >
       <button mat-button color="warn" (click)="onDelete(cliente.id)">
         REMOVER
       </button>
-    </mat-action-row>
+    </mat-action-row> -->
   </mat-expansion-panel>
 </mat-accordion>
 <mat-paginator *ngIf="clientes.length > 0"[length]="totalDeClientes" [pageSize]="totalDeClientesPorPagina" [pageSizeOptions]="opcoesTotalDeClientesPorPagina" (page)="onPaginaAlterada($event)"></mat-paginator>
@@ -47,4 +50,4 @@
 >
   Nenhum cliente cadastrado
 </p>
-<button id="bn_voltar" mat-raised-button>Voltar ao inicio</button>
+<button color="accent" id="bn_voltar" mat-raised-button>Voltar ao inicio</button>

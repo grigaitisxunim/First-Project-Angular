@@ -86,25 +86,13 @@ imagemURL = url + "/imagens/" + req.file.filename;
       crp: req.body.crp,
       imagemURL: imagemURL
     });
-    cliente.save().then((clienteInserido) => {
-      res.status(201).json({
-        mensagem: "Cliente inserido",
-        //id: clienteInserido._id
-        cliente: {
-          id: clienteInserido._id,
-          nome: clienteInserido.nome,
-          fone: clienteInserido.fone,
-          email: clienteInserido.email,
-          senha: clienteInserido.senha,
-          especialidade: clienteInserido.especialidade,
-          estado: clienteInserido.estado,
-          crp: clienteInserido.crp,
-          imagemURL: clienteInserido.imagemURL,
-        },
-      });
+    Cliente.updateOne({ _id: req.params.id }, cliente).then((resultado) => {
+      //console.log(resultado)
+      res.status(200).json({ mensagem: "Atualização realizada com sucesso" });
     });
   }
 );
+   
 router.get('', (req, res, next) => {
   //console.log (req.query);
   const pageSize = +req.query.pagesize;

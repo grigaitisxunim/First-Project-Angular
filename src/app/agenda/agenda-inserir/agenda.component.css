@@ -12,7 +12,6 @@ form{
 
 .mat-raised-button {
   background-color: rgb(240, 162, 47);
-  margin-left: 12rem;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {
@@ -58,7 +57,6 @@ input[type="file"] {
   background-color: transparent;
   border: 1px solid #f89c24;
   transition: background-color 0.5s;
-  margin-left: 10rem;
 }
 .btn-primary:hover {
   background-color: #f89c24;
