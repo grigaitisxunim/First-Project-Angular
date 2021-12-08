@@ -3,12 +3,15 @@
   <span class="separador"></span>
     <span id=home><a routerLink="/inicio">Inicio</a></span>
     <ul>
-      <a routerLink="/lista">Voluntarios</a></ul>
+      <a routerLink="/lista">Voluntários</a></ul>
       <ul>
         <a routerLink="/agendar">Agendar</a>
       </ul>
       <ul>
         <a routerLink="/agenda-lista">Agendamentos</a>
+      </ul>
+      <ul>
+        <a routerLink="/">Sair</a>
       </ul>
     </mat-toolbar>
 
@@ -33,10 +36,10 @@
     <mat-form-field>
       <mat-select
         matSelect
-        placeholder="Medico"
+        placeholder="Médico"
         formControlName="medico"
         name="medico">
-        <mat-option value="Joao Luiz">Joao Luiz</mat-option>
+        <mat-option value="João Luiz">Joao Luiz</mat-option>
         <mat-option value="Marcos Silva">Marcos Silva</mat-option>
         <mat-option value="Vinicius Andrade">Vinicius Andrade</mat-option>
         <mat-option value="Paulo Rocha">Paulo Rocha</mat-option>
@@ -65,6 +68,6 @@
       </mat-select>
     </mat-form-field>
     <button color="accent" mat-raised-button>Inserir</button>
-    <button  color="accent"id="bn_voluntarios" router-Link='inicio-voluntario' mat-raised-button >Ir para o inicio</button>
+    <button  color="accent"id="bn_voluntarios" router-Link='inicio-paciente' mat-raised-button >Ir para o inicio</button>
   </form>
 </mat-card>

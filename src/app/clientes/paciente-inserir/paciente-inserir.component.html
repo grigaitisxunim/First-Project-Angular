@@ -1,5 +1,7 @@
 <mat-toolbar color="basic">
   <h4 id=title>Ideia Amiga</h4>
+  <span class="separador"></span>
+    <span id=home><a routerLink="/">Sair</a></span>
   </mat-toolbar>
   
 <mat-card>
@@ -11,7 +13,7 @@
     Paciente
   </button>
   <button style="margin-left: 30px" class="btn btn-primary" routerLink="/criar">
-    Psicológo
+    Voluntário
   </button>
   <br />
   <br />
@@ -28,7 +30,7 @@
       >
       
     </mat-form-field>
-    <div>
+    <!--<div>
       <button mat-stroked-button
         type="button"
         (click)="selecionaArquivo.click()">
@@ -42,10 +44,11 @@
         *ngIf="previewImagem && previewImagem !== ''"
         [alt]="form.value.nome"
       />
-    </div>
+    </div> -->
     <mat-form-field>
       <input
         type="text"
+        mask="(xx) xxxxx-xxxx"
         matInput
         placeholder="Telefone"
         name="fone"
@@ -68,8 +71,8 @@
       >
     </mat-form-field>
     <mat-form-field>
-      <input
-        type="text"
+      <input 
+        type="password"
         matInput
         placeholder="Senha"
         formControlName="senha"
@@ -118,7 +121,7 @@
         >Digite a Data de nascimento</mat-error
       >
     </mat-form-field>
-    <button  color="accent" mat-raised-button>Inserir</button>
-    <button color="accent" id="bn_voluntarios" mat-raised-button>Verificar Voluntarios</button>
+    <button  id="inserir"color="accent" mat-raised-button>Inserir</button>
   </form>
+ 
 </mat-card>

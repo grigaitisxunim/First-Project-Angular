@@ -43,7 +43,7 @@ router.post(
       especialidade: req.body.especialidade,
       estado: req.body.estado,
       crp: req.body.crp,
-      imagemURL: `${imagemURL}/imagens/${req.file.filename}`,
+      imagemURL: `${imagemURL}/imagens/${req.file}`,
     });
     cliente.save().then((clienteInserido) => {
       res.status(201).json({

@@ -15,7 +15,7 @@ export class AgendaComponent implements OnInit {
 
     private modo: string = "criar";
     private idAgenda: string | null = null;
-    public agenda: Agenda | undefined;
+    public agenda!: Agenda 
     public estaCarregando: boolean = false;
     form!: FormGroup;
 
@@ -83,6 +83,7 @@ export class AgendaComponent implements OnInit {
            
             ); 
             console.log("modo criar "+ this.form.value.hora);
+            alert('Agenda inserida');
         } else {
             this.agendaService.atualizarAgenda(
                 this.idAgenda!,

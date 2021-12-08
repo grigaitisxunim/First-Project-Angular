@@ -3,14 +3,16 @@
   <span class="separador"></span>
   <span id=home><a routerLink="/inicio">Inicio</a></span>
   <ul>
-    <a routerLink="/lista">Voluntarios</a></ul>
+    <a routerLink="/lista">Voluntários</a></ul>
     <ul>
       <a routerLink="/agendar">Agendar</a>
     </ul>
     <ul>
       <a routerLink="/agenda-lista">Agendamentos</a>
     </ul>
-    
+    <ul>
+      <a routerLink="/">Sair</a>
+    </ul>
   </mat-toolbar>
   <mat-spinner *ngIf="estaCarregando"></mat-spinner>
 <mat-accordion *ngIf="clientes.length > 0 && !estaCarregando">
@@ -18,9 +20,9 @@
     <mat-expansion-panel-header
       >Nome: {{ cliente.nome }}
     </mat-expansion-panel-header>
-    <div class="cliente-imagem">
+    <!--<div class="cliente-imagem">
       <img [src]="cliente.imagemURL" [alt]="cliente.nome" />
-    </div>
+    </div> -->
     <p>Fone: {{ cliente.fone }}</p>
     <hr />
     <p>Email: {{ cliente.email }}</p>
@@ -50,4 +52,4 @@
 >
   Nenhum cliente cadastrado
 </p>
-<button color="accent" id="bn_voltar" mat-raised-button>Voltar ao inicio</button>
+<button color="accent" id="bn_voltar"  mat-raised-button  routerLink="/inicio-paciente">Voltar ao inicio</button>

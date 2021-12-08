@@ -10,7 +10,8 @@ const agendaRoutes = require("./rotas/agendas");
 
 mongoose
   .connect(
-    "mongodb+srv://Projeto_2021:projeto21@cluster0.un0lx.mongodb.net/Projeto_2021?retryWrites=true&w=majority"
+    "mongodb+srv://Projeto_2021:projeto21@cluster0.un0lx.mongodb.net/Projeto_2021?retryWrites=true&w=majority" 
+   /* "mongodb+srv://fefebfs1:fefebfs@cluster0.t72pr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"     */
   )
   
   .then(() => {
@@ -27,7 +28,7 @@ const get = async () => {
 };
 
 app.use(bodyParser.json());
-app.use("/imagens", express.static(path.join("backend/imagens")));
+
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(

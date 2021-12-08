@@ -13,7 +13,7 @@ import { AgendaListaComponent } from './agenda/agenda-lista/agenda-lista.compone
 const routes: Routes = [
 
 { path: '', component: Cadastro },
-{path:'inicio',component:InicioComponent},
+{path:'inicio-voluntario',component:InicioVoluntarioComponent},
 {path:'inicio-paciente',component:InicioComponent},
 { path: 'criar', component: ClienteInserirComponent},
 { path: 'lista', component: ClienteListaComponent },
@@ -24,6 +24,7 @@ const routes: Routes = [
 { path:'menu', component: MenuComponent},
 { path: 'agendar', component: AgendaComponent },
 { path: 'agenda-lista', component: AgendaListaComponent},
+{path: 'agenda-lista-voluntario', component:AgendaListaComponent},
 {path :'inicio-voluntario', component: InicioVoluntarioComponent}
 
 

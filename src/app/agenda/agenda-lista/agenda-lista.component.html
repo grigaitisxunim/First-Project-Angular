@@ -3,21 +3,24 @@
   <span class="separador"></span>
   <span id=home><a routerLink="/inicio">Inicio</a></span>
   <ul>
-    <a routerLink="/lista">Voluntarios</a></ul>
+    <a routerLink="/lista">Voluntários</a></ul>
     <ul>
       <a routerLink="/agendar">Agendar</a>
     </ul>
     <ul>
       <a routerLink="/agenda-lista">Agendamentos</a>
     </ul>
+    <ul>
+      <a routerLink="/">Sair</a>
+    </ul>
   </mat-toolbar>
   <mat-spinner *ngIf="estaCarregando"></mat-spinner>
 <mat-accordion *ngIf="agendas.length > 0 && !estaCarregando">
   <mat-expansion-panel *ngFor="let age of agendas">
     <mat-expansion-panel-header
-      >Especialidade: {{ age.especialidade }}
+      >Médico: {{ age.medico }}
     </mat-expansion-panel-header>
-    <p>Medico: {{ age.medico }}</p>
+    <p>Especialidade: {{ age.especialidade }}</p>
     <hr />
     <p>Data: {{ age.data }}</p>
     <hr />
@@ -42,4 +45,4 @@
 >
   Você não possui consulta marcada 
 </p>
-<button color="accent" id="bn_voltar" mat-raised-button>Voltar ao inicio</button>
+<button color="accent" id="bn_voltar" mat-raised-button  routerLink="/inicio-paciente">Voltar ao inicio</button>

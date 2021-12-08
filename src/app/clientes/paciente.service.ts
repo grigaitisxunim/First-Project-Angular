@@ -69,7 +69,6 @@ export class PacienteService {
         this.httpClient.post<{ mensagem: string, paciente: Paciente }>
             ('http://localhost:3000/api/pacientes', dadosPaciente).subscribe(
                 (dados) => {
-                    /*paciente.id = dados.id;*/
                     const paciente: Paciente = {
                         id: dados.paciente.id,
                         nome: nome,
@@ -82,7 +81,7 @@ export class PacienteService {
                     };
                     this.pacientes.push(paciente);
                     this.listaPacienteAtualizada.next([...this.pacientes]);
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/inicio']);
                 }
             )
     }

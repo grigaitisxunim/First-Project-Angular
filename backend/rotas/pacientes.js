@@ -41,7 +41,7 @@ router.post(
       senha: req.body.senha,
       estado: req.body.estado,
       datanasc: req.body.datanasc,
-      imagemURL: `${imagemURL}/imagens/${req.file.filename}`,
+      imagemURL: `${imagemURL}/imagens/${req.file}`,
     });
     paciente.save().then((pacienteInserido) => {
       res.status(201).json({

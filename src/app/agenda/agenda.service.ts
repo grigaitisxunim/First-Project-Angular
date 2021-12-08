@@ -17,15 +17,16 @@ export class AgendaService {
     }
 
     getAgendas(): void {
+        
         this.httpClient.get <{mensagem: string, agendas: any}>('http://localhost:3000/api/agendas')
             .pipe(map((dados) => {
-                return dados.agendas.map((agenda: { _id: any; especialidade: any; medico: any; data: any,hora:any }) => {
+                return dados.agendas.map((agenda: { _id: any; especialidade:any,medico:any,data:any,hora:any }) => {
                     return {
                         id: agenda._id,
-                        especialidade: agenda.especialidade,
-                        medico: agenda.medico,
+                        especialidade:agenda.especialidade,
+                        medico:agenda.medico,
                         data:agenda.data,
-                        hora: agenda.hora,
+                        hora:agenda.hora,
                     }
                 })
             }))
@@ -36,7 +37,6 @@ export class AgendaService {
                 }
             )
     }
-
     constructor(private httpClient: HttpClient, private router: Router) {
     }
 
@@ -46,12 +46,10 @@ export class AgendaService {
         dadosAgenda.append('medico', medico);
         dadosAgenda.append('data', data);
         dadosAgenda.append('hora', hora);
-        
         this.httpClient.post<{ mensagem: string, agenda: Agenda }>
         ('http://localhost:3000/api/agendas', dadosAgenda).subscribe(
                 (dados) => {
-                    /*cliente.id = dados.id;*/
-                    const xagenda: Agenda = {
+                    const agenda: Agenda = {
                         id: dados.agenda.id,
                         especialidade:especialidade,
                         medico:medico,
@@ -59,8 +57,8 @@ export class AgendaService {
                         hora: hora,
                         
                     };
-                    console.log("agenda" + xagenda.especialidade);
-                    this.agendas.push(xagenda);
+                    console.log("agenda" + agenda.especialidade);
+                    this.agendas.push(agenda);
                     this.listaAgendasAtualizada.next([...this.agendas]);
                     this.router.navigate(['/inicio']);
                 }
@@ -70,7 +68,6 @@ export class AgendaService {
             
     }
     getAgenda(idAgenda: string) {
-        //return {...this.clientes.find((cli) => cli.id === idCliente)};
         return this.httpClient.get<{ 
             _id: string, 
             especialidade: string, 

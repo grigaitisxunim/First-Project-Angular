@@ -39,8 +39,8 @@ export class PacienteInserirComponent implements OnInit {
             datanasc: new FormControl(null, {
                 validators: [Validators.required]
             }),
-            imagem: new FormControl(null, {
-                validators: [Validators.required],
+            imagem: new FormControl( {
+               
                 //asyncValidators: [mimeTypeValidator]
             }),
         })
@@ -97,6 +97,7 @@ export class PacienteInserirComponent implements OnInit {
                 this.form.value.datanasc,
                 this.form.value.imagem
             );
+            
         } else {
             this.pacienteService.atualizarPaciente(
                 this.idPaciente!,

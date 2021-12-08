@@ -45,8 +45,8 @@ export class ClienteInserirComponent implements OnInit {
             crp: new FormControl(null, {
                 validators: [Validators.required]
             }),
-            imagem: new FormControl(null, {
-                validators: [Validators.required],
+            imagem: new FormControl( {
+                
                 //asyncValidators: [mimeTypeValidator]
             }),
         })

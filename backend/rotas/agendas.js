@@ -6,15 +6,14 @@ router.post(
   "",
   (req, res, next) => {
     const agenda = new Agenda({
-      especialidade: req.body.especialidade,
+      especialidade:req.body.especialidade,
       medico: req.body.medico,
       data: req.body.data,
       hora:req.body.hora,
-    }); console.log("post " + req.body.especialidade)
+    }); console.log("post"+req.body.especialidade)
     agenda.save().then((agendaInserido) => {
       res.status(201).json({
         mensagem: "Cliente inserido",
-       
         agenda: {
           id: agendaInserido._id,
           especialidade: agendaInserido.especialidade,

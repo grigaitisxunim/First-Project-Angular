@@ -43,7 +43,10 @@ input {
 
 .mat-raised-button {
   background-color: rgb(240, 162, 47);
-  margin-left: 12rem;
+  
+}
+#inserir{
+  margin-left: 0.3rem;
 }
 
 ::ng-deep .mat-focused .mat-form-field-label {

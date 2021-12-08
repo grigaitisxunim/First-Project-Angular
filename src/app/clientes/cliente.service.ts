@@ -73,7 +73,7 @@ export class ClienteService {
                     };
                     this.clientes.push(cliente);
                     this.listaClientesAtualizada.next([...this.clientes]);
-                    this.router.navigate(['/inicio']);
+                    this.router.navigate(['/inicio-voluntario']);
                 }
             )
     }
